@@ -1,6 +1,50 @@
-# Commands
+### Universidad de San Carlos de Guatemala
 
-Switch Capa 3
+### Facultad de Ingeniería
+
+### Escuela de Ciencias y Sistemas
+
+## Practica 1
+
+
+<div>
+    <p align="center">
+       <img src="images/usac.png" width="500" alt="inicio"> 
+  <p>
+</div>
+
+
+##  Curso: Redes de Computadoras 2
+
+<hr>
+<br>
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Carnet</th>
+        </tr>
+        <tr>
+            <th>Juan Antonio Solares Samayoa</th>
+            <th>201800496</th>
+        </tr>
+        <tr>
+            <th>Elmer Gustavo Sánchez García</th>
+            <th>201801351</th>
+        </tr>
+        <tr>
+            <th>Cristian Alexander Gómez Guzmán</th>
+            <th>201801480</th>
+        </tr>
+    </table>
+</div>
+<br>
+<hr>
+
+# Commands
+### Switch Capa 3
+
+``` 
 **nota: Por defecto ya esta habilitados los puertos en modo truncal**
 
 config t
@@ -61,7 +105,10 @@ exit
 config t
 ip routing
 
+```
+
 ### SWITCH S0:
+```
 
 TRUNCALES:
 
@@ -105,9 +152,10 @@ int range f#/# - # || int f#/#
 channel-protocol pagp
 channel-group <no> mode on <auto || desirable>
 exit
+```
 
 ### SWITCH S1:
-
+```
 config t
 int range f0/1 - 5
 switchport mode trunk
@@ -127,8 +175,10 @@ channel-protocol lacp
 channel-group 1 mode active
 exit
 
+```
 ### SWITCH S2 - S3:
 
+```
 config t
 int range f0/1 - 4
 switchport mode trunk
@@ -196,7 +246,10 @@ switchport mode access
 switchport access vlan 29
 exit
 
+```
+
 ### SWITCH S4 - S5:
+```
 
 config t
 int f0/1
@@ -222,7 +275,21 @@ exit
 interface f0/3
 switchport mode access
 switchport access vlan 49
+interface range f0/7 - 8
+switchport mode access
+switchport access vlan 29
 exit
+
+MODO ACCESO S3
+
+- VENTAS y DISTRIBUCIÓN
+
+config t
+interface f0/5
+switchport mode access
+switchport access vlan 19
+exit
+
 
 MODO ACCESO S5
 
@@ -238,3 +305,13 @@ interface f0/3
 switchport mode access
 switchport access vlan 49
 exit
+```
+
+
+### STP de
+
+```
+config t 
+spanning-tree mode rapid-pvst
+
+```
