@@ -35,6 +35,32 @@ vtp password g9
 vtp mode server
 vtp version 2
 
+INTER VLAN:
+
+conf t
+interface vlan 19
+ip add 192.168.19.1 255.255.255.224
+no shutdown
+exit
+
+interface vlan 29
+ip add 192.168.19.33 255.255.255.224
+no shutdown
+exit
+
+interface vlan 39
+ip add 192.168.19.65 255.255.255.224
+no shutdown
+exit
+
+interface vlan 49
+ip add 192.168.19.97 255.255.255.224
+no shutdown
+exit
+
+config t
+ip routing
+
 ### SWITCH S0:
 
 TRUNCALES:
@@ -141,6 +167,7 @@ channel-group 3 mode active
 exit
 
 MODO ACCESO S2
+
 - VENTAS y DISTRIBUCIÓN
 
 config t
@@ -155,6 +182,7 @@ switchport access vlan 29
 exit
 
 MODO ACCESO S3
+
 - VENTAS y DISTRIBUCIÓN
 
 config t
@@ -167,8 +195,6 @@ interface f0/6
 switchport mode access
 switchport access vlan 29
 exit
-
-
 
 ### SWITCH S4 - S5:
 
@@ -183,9 +209,9 @@ vtp domain g9
 vtp password g9
 vtp mode client
 
-
 MODO ACCESO S4
-- ADMINISTRACIÓN y SERVIDORES 
+
+- ADMINISTRACIÓN y SERVIDORES
 
 config t
 interface f0/2
@@ -198,9 +224,9 @@ switchport mode access
 switchport access vlan 49
 exit
 
-
 MODO ACCESO S5
-- ADMINISTRACIÓN y SERVIDORES 
+
+- ADMINISTRACIÓN y SERVIDORES
 
 config t
 interface f0/2
