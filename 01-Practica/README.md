@@ -195,7 +195,10 @@ vtp mode client
 PORT CHANEL S2:
 LACP:
 conf t
-int range f0/1 - 
+int range f0/1 - 2
+channel-protocol lacp
+channel-group 2 mode active
+exit
 
 int range f0/3 - 4
 channel-protocol lacp
