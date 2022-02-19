@@ -6,15 +6,13 @@
 
 ## Practica 1
 
-
 <div>
     <p align="center">
        <img src="images/usac.png" width="500" alt="inicio"> 
   <p>
 </div>
 
-
-##  Curso: Redes de Computadoras 2
+## Curso: Redes de Computadoras 2
 
 <hr>
 <br>
@@ -42,9 +40,10 @@
 <hr>
 
 # Commands
+
 ### Switch Capa 3
 
-``` 
+```
 **nota: Por defecto ya esta habilitados los puertos en modo truncal**
 
 config t
@@ -108,6 +107,7 @@ ip routing
 ```
 
 ### SWITCH S0:
+
 ```
 
 TRUNCALES:
@@ -155,6 +155,7 @@ exit
 ```
 
 ### SWITCH S1:
+
 ```
 config t
 int range f0/1 - 5
@@ -176,6 +177,7 @@ channel-group 1 mode active
 exit
 
 ```
+
 ### SWITCH S2 - S3:
 
 ```
@@ -249,6 +251,7 @@ exit
 ```
 
 ### SWITCH S4 - S5:
+
 ```
 
 config t
@@ -307,11 +310,147 @@ switchport access vlan 49
 exit
 ```
 
-
 ### STP de
 
 ```
-config t 
+config t
 spanning-tree mode rapid-pvst
 
 ```
+
+## Seguridad de interfaces de red
+
+### SWITCH CAPA 3
+
+config t
+int range f0/3 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int range f0/1 - 2
+switchport trunk native vlan 99
+exit
+
+### SWITCH 0
+
+config t
+int range f0/8 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int range f0/1 - 7
+switchport trunk native vlan 99
+exit
+
+### SWITCH 1
+
+config t
+int range f0/6 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int range f0/1 - 5
+switchport trunk native vlan 99
+exit
+
+### SWITCH 2
+
+config t
+int range f0/9 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int range f0/1 - 4
+switchport trunk native vlan 99
+exit
+
+config t
+int range f0/5 - 6
+switchport port-security
+switchport port-security maximum 5
+switchport port-security violation shutdown
+exit
+
+config t
+int range f0/7 - 8
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky switchport port-security violation shutdown
+exit
+
+### SWITCH 3
+
+config t
+int range f0/7 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int range f0/1 - 4
+switchport trunk native vlan 99
+exit
+
+config t
+int f0/5
+switchport port-security
+switchport port-security maximum 5
+switchport port-security violation shutdown
+exit
+
+config t
+int f0/6
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky switchport port-security violation shutdown
+exit
+
+### SWITCH 4
+
+config t
+int range f0/4 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int f0/1
+switchport trunk native vlan 99
+exit
+
+config t
+int f0/2
+switchport port-security
+switchport port-security maximum 5
+switchport port-security violation shutdown
+exit
+
+### SWITCH 5
+
+config t
+int range f0/4 - 24
+switchport mode access
+switchport access vlan 999
+exit
+
+config t
+int f0/1
+switchport trunk native vlan 99
+exit
+
+config t
+int f0/2
+switchport port-security
+switchport port-security maximum 5
+switchport port-security violation shutdown
+exit
+
+sh int f0/1 sw
