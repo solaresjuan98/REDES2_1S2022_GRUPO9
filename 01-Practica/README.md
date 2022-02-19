@@ -195,10 +195,7 @@ vtp mode client
 PORT CHANEL S2:
 LACP:
 conf t
-int range f0/1 - 2
-channel-protocol lacp
-channel-group 2 mode active
-exit
+int range f0/1 - 
 
 int range f0/3 - 4
 channel-protocol lacp
@@ -454,3 +451,31 @@ switchport port-security violation shutdown
 exit
 
 sh int f0/1 sw
+
+
+<hr>
+
+# Pruebas de convergencia 
+
+| Escenario | Tipo Ethernet Channel | Protocolo Spanning-Tree | Convergencia (s) |
+| --------- | --------------------- | ----------------------- | ---------------- |
+| 1         | Ethernet Channel LACP | PVST                    | 50               |
+| 2         | Ethernet Channel LACP | Rapid PVST              | 2.811            |
+| 3         | Ethernet Channel PAgP | PVST                    | 65.4             |
+| 4         | Ethernet Channel PAgP | Rapid PVST              | 6.01             |
+
+
+<div>
+    <p align="center">
+       <img src="images/test1.jpeg" width="500" alt="inicio"> 
+  <p>
+</div>
+
+<br>
+
+<div>
+    <p align="center">
+       <img src="images/test2.jpeg" width="500" alt="inicio"> 
+  <p>
+</div>
+<hr>
