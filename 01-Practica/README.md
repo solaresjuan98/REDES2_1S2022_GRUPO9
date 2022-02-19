@@ -93,22 +93,6 @@ VTP son las siglas de VLAN Trunking Protocol, un protocolo de mensajes de nivel 
 * S4
 * S5
 
-
-# EXPLICACIÓN SUBNETTING 
-
-## Tabla de subredes
-
-
-
-| VLAN | Nombre            | Direccion de red    | Primera dirección asignable | Última dirección asignable | Dirección de broadcast | Mascara de subred |
-| ---- | ----------------- | ------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------- |
-| 19   | Ventas            | 192.168.19.0 / 27   | 192.168.19.1                | 192.168.19.30              | 192.168.19.31          | 255.255.255.224   |
-| 29   | Distribución      | 192.168.19.32 / 27  | 192.168.19.33               | 192.168.19.62              | 192.168.19.63          | 255.255.255.224   |
-| 39   | Administración    | 192.168.19.64 / 27  | 192.168.19.65               | 192.168.19.94              | 192.168.19.95          | 255.255.255.224   |
-| 49   | Servidores        | 192.168.19.96 / 27  | 192.168.19.97               | 192.168.19.126             | 192.168.19.127         | 255.255.255.224   |
-| 99   | Management&Native | 192.168.19.128 / 27 | 192.168.19.129              | 192.168.19.158             | 192.168.19.159         | 255.255.255.224   |
-| 999  | BlackHole         | 192.168.19.160 / 27 | 192.168.19.161              | 192.168.19.190             | 192.168.19.191         | 255.255.255.224   |
-
 # VLANs UTILIZADAS
 
 <div>
@@ -143,6 +127,30 @@ VTP son las siglas de VLAN Trunking Protocol, un protocolo de mensajes de nivel 
         </tr>
     </table>
 </div>
+
+
+# EXPLICACIÓN SUBREDES 
+
+La técnica para dividir la topología en subredes fue VLSM (Variable Length Subnet Mask), la cual fue elegida debido las siguientes razones:
+
+* Permite dividir un espacio de red en partes desiguales
+* La mascara de subred varía de acuerdo a la cantidad de bits que se toman prestados para una subred específica
+* La red primero es dividida en subredes y las subredes son divididas en más subredes.
+
+## Tabla de subredes
+
+
+
+| VLAN | Nombre            | Direccion de red    | Primera dirección asignable | Última dirección asignable | Dirección de broadcast | Mascara de subred |
+| ---- | ----------------- | ------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------- |
+| 19   | Ventas            | 192.168.19.0 / 27   | 192.168.19.1                | 192.168.19.30              | 192.168.19.31          | 255.255.255.224   |
+| 29   | Distribución      | 192.168.19.32 / 27  | 192.168.19.33               | 192.168.19.62              | 192.168.19.63          | 255.255.255.224   |
+| 39   | Administración    | 192.168.19.64 / 27  | 192.168.19.65               | 192.168.19.94              | 192.168.19.95          | 255.255.255.224   |
+| 49   | Servidores        | 192.168.19.96 / 27  | 192.168.19.97               | 192.168.19.126             | 192.168.19.127         | 255.255.255.224   |
+| 99   | Management&Native | 192.168.19.128 / 27 | 192.168.19.129              | 192.168.19.158             | 192.168.19.159         | 255.255.255.224   |
+| 999  | BlackHole         | 192.168.19.160 / 27 | 192.168.19.161              | 192.168.19.190             | 192.168.19.191         | 255.255.255.224   |
+
+
 
 # Comandos utilizados para realizar la práctica
 
@@ -426,7 +434,7 @@ spanning-tree mode rapid-pvst
 ## Seguridad de interfaces de red
 
 ### SWITCH CAPA 3
-
+```
 config t
 int range f0/3 - 24
 switchport mode access
@@ -437,9 +445,10 @@ config t
 int range f0/1 - 2
 switchport trunk native vlan 99
 exit
-
+```
 ### SWITCH 0
 
+```
 config t
 int range f0/8 - 24
 switchport mode access
@@ -450,9 +459,11 @@ config t
 int range f0/1 - 7
 switchport trunk native vlan 99
 exit
+```
 
 ### SWITCH 1
 
+```
 config t
 int range f0/6 - 24
 switchport mode access
@@ -463,9 +474,11 @@ config t
 int range f0/1 - 5
 switchport trunk native vlan 99
 exit
+```
 
 ### SWITCH 2
 
+```
 config t
 int range f0/9 - 24
 switchport mode access
@@ -490,9 +503,11 @@ switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky switchport port-security violation shutdown
 exit
+```
 
 ### SWITCH 3
 
+```
 config t
 int range f0/7 - 24
 switchport mode access
@@ -517,9 +532,11 @@ switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky switchport port-security violation shutdown
 exit
+```
 
 ### SWITCH 4
 
+```
 config t
 int range f0/4 - 24
 switchport mode access
@@ -537,9 +554,11 @@ switchport port-security
 switchport port-security maximum 5
 switchport port-security violation shutdown
 exit
+```
 
 ### SWITCH 5
 
+```
 config t
 int range f0/4 - 24
 switchport mode access
@@ -559,7 +578,7 @@ switchport port-security violation shutdown
 exit
 
 sh int f0/1 sw
-
+```
 
 <hr>
 
