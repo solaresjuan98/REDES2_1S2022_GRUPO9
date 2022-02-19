@@ -39,7 +39,112 @@
 <br>
 <hr>
 
-# Commands
+
+# Topología 
+
+![topologia](images/topologia.png)
+
+
+# VTP
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>DOMINIO</th>
+            <th>PASSWORD</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>g9</th>
+                <th>g9</th>  
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+# VTP
+
+## Definición:
+<p>
+VTP son las siglas de VLAN Trunking Protocol, un protocolo de mensajes de nivel 2 usado para configurar y administrar VLANs en equipos Cisco. Permite centralizar y simplificar la administración en un domino de VLANs, pudiendo crear, borrar y renombrar las mismas, reduciendo así la necesidad de configurar la misma VLAN en todos los nodos. El protocolo VTP nace como una herramienta de administración para redes de cierto tamaño, donde la gestión manual se vuelve inabordable.
+</p>
+
+## Modos de VTP
+
+* <b>Servidor</b>: Es el modo por defecto. Desde él se pueden crear, eliminar o modificar VLANs. Su cometido es anunciar su configuración al resto de switches del mismo dominio VTP y sincronizar dicha configuración con la de otros servidores, basándose en los mensajes VTP recibidos a través de sus enlaces trunk. Debe haber al menos un servidor. Se recomienda autenticación MD5.
+  
+* <b>Cliente</b>: En este modo no se pueden crear, eliminar o modificar VLANs, tan sólo sincronizar esta información basándose en los mensajes VTP recibidos de servidores en el propio dominio. Un cliente VTP sólo guarda la información de la VLAN para el dominio completo mientras el switch está activado. Un reinicio del switch borra la información de la VLAN.
+  
+* <b>Transparente</b>: Desde este modo tampoco se pueden crear, eliminar o modificar VLANs que afecten a los demás switches. La información VLAN en los switches que trabajen en este modo sólo se puede modificar localmente. Su nombre se debe a que no procesa las actualizaciones VTP recibidas, tan sólo las reenvía a los switches del mismo dominio
+
+
+## Configuraciones VTP en la topologia
+
+### Switches configurados VTP modo servidor
+* S0 
+
+### Switches configurados VTP modo cliente
+* S1
+* S2
+* S3
+* S4
+* S5
+
+
+# EXPLICACIÓN SUBNETTING 
+
+## Tabla de subredes
+
+
+
+| VLAN | Nombre            | Direccion de red    | Primera dirección asignable | Última dirección asignable | Dirección de broadcast | Mascara de subred |
+| ---- | ----------------- | ------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------- |
+| 19   | Ventas            | 192.168.19.0 / 27   | 192.168.19.1                | 192.168.19.30              | 192.168.19.31          | 255.255.255.224   |
+| 29   | Distribución      | 192.168.19.32 / 27  | 192.168.19.33               | 192.168.19.62              | 192.168.19.63          | 255.255.255.224   |
+| 39   | Administración    | 192.168.19.64 / 27  | 192.168.19.65               | 192.168.19.94              | 192.168.19.95          | 255.255.255.224   |
+| 49   | Servidores        | 192.168.19.96 / 27  | 192.168.19.97               | 192.168.19.126             | 192.168.19.127         | 255.255.255.224   |
+| 99   | Management&Native | 192.168.19.128 / 27 | 192.168.19.129              | 192.168.19.158             | 192.168.19.159         | 255.255.255.224   |
+| 999  | BlackHole         | 192.168.19.160 / 27 | 192.168.19.161              | 192.168.19.190             | 192.168.19.191         | 255.255.255.224   |
+
+# VLANs UTILIZADAS
+
+<div>
+    <table>
+        <tr>
+            <th># VLAN</th>
+            <td>NOMBRE</td>
+        </tr>
+        <tr>
+            <th>Ventas</th>
+            <td>19</td>
+        </tr>
+        <tr>
+            <th>Distribución</th>
+            <td>29</td>
+        </tr>
+        <tr>
+            <th>Administración</th>
+            <td>39</td>
+        </tr>
+        <tr>
+            <th>Servidores</th>
+            <td>49</td>
+        </tr>
+        <tr>
+            <th>Management&Native</th>
+            <td>99</td>
+        </tr>
+        <tr>
+            <th>BlackHole</th>
+            <td>999</td>
+        </tr>
+    </table>
+</div>
+
+# Comandos utilizados para realizar la práctica
 
 ### Switch Capa 3
 
@@ -310,13 +415,13 @@ switchport access vlan 49
 exit
 ```
 
-### STP de
+<!-- ### STP de
 
 ```
 config t
 spanning-tree mode rapid-pvst
 
-```
+``` -->
 
 ## Seguridad de interfaces de red
 
@@ -458,7 +563,12 @@ sh int f0/1 sw
 
 <hr>
 
-# Pruebas de convergencia 
+
+# ESCENARIO DE MEJOR CONVERGENCIA
+
+En la siguiente tabla se muestran los escenarios probados para verificar cual era el escenario que tiene un menor de convergencia al momento de desconectar alguna parte de de la topología.
+
+Se examinaron 4 posibles escenarios:
 
 | Escenario | Tipo Ethernet Channel | Protocolo Spanning-Tree | Convergencia (s) |
 | --------- | --------------------- | ----------------------- | ---------------- |
@@ -467,6 +577,18 @@ sh int f0/1 sw
 | 3         | Ethernet Channel PAgP | PVST                    | 65.4             |
 | 4         | Ethernet Channel PAgP | Rapid PVST              | 6.01             |
 
+
+<p>
+De acuerdo a la tabla, el escenario que tardó menos tiempo en converger en la conexión fue el escenario # 2 que corresponde al Ethernet Channel LACP protocolo Spanning-Tree Rapid PVST, y el  escenario que tardo más tiempo en converger fue el escenario # 1 que corresponde al Ethernet Channel LACP y el protocolo de Spanning-Tree PVST. 
+</p>
+
+<p>
+En el escenario con menor tiempo de convergencia se cuenta con el protocolo Rapid PVST, y este protocolo de Spanning Tree tiene como caracteristica que a comparación de otros otros protocolos Spanning Tree que se reduce significativamente el tiempo de convergencia de la topología, siendo este una evolución del estándar 
+</p>
+
+<p>
+En el escenario con mayor tiempo de convergencia se cuena con el protocolo Per VLAN Spanning Tree, en donde se trata a cada VLAN como si fuera una red separada.
+</p>
 
 <div>
     <p align="center">
