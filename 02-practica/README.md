@@ -334,6 +334,53 @@ exit
     exit
 ```
 
+
+## CONFIGURACION DE BGP
+``sh
+    
+    # Wodafone
+    config t
+    router ospf 100
+    network 10.1.2.0 0.0.0.3 area 0
+    exit
+
+    router bgp 100
+    network 10.1.1.0 mask 255.255.255.252
+
+
+    # Telefonica
+    config t
+    router rip 
+    network 10.1.5.0
+
+    router bgp 200
+    network 10.1.1.0 mask 255.255.255.252
+
+
+    # Configurar vecinos en Wodafone
+    configure terminal
+    router bgp 100
+    neighbor 10.1.1.2 remote-as 200
+
+    # Configurar vecinos en Telefonica
+    configure terminal
+    router bgp 200
+    neighbor 10.1.1.1 remote-as 100
+ 
+
+    # Redistribuir BGP en Wodafone
+    router ospf 100
+    redistribute bgp 200 metric 1 1 1 1 1
+
+
+    # Redistribuir BGP en Telefonica
+    router rip 
+    redistribute bgp 100 metric 1 1 1 1 1
+
+
+``
+
+
 # Comunicación entre departamentos:
 
 | Departamento    | Departamento           |
