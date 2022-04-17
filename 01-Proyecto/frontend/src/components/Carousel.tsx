@@ -26,7 +26,7 @@ export const Carousel = ({ images }: Props) => {
                 ref={carousel}
                 className='carousel'
                 whileTap={{ cursor: "grabbing" }}
-                style={{ backgroundColor: '#fffbf3', borderRadius: '10px', height: '100%'}}
+                style={{ backgroundColor: '#fffbf3', borderRadius: '10px' }}
             >
 
                 <motion.div
@@ -38,8 +38,8 @@ export const Carousel = ({ images }: Props) => {
                     <>
                         {
                             images.map((image, i) => (
-                                <motion.div className='item' style={{ height: '100px', width: '400px' }} key={i}>
-                                    <img src={image.image_url} alt="user" />
+                                <motion.div className='item' key={i}>
+                                    <img src={image.image_url}  alt="user" />
                                     <b className='mt-5'>{image.title}</b>
                                 </motion.div>
                             ))

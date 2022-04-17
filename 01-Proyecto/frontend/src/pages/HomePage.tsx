@@ -8,10 +8,11 @@ export const HomePage = () => {
       <h1>Home</h1>
       <hr />
 
-      <div className="row container">
-        <div className="col-12">
-          <Carousel images={images} />
-        </div>
+
+      <div className="row">
+
+        <Carousel images={images} />
+
       </div>
 
     </div>
