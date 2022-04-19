@@ -47,6 +47,26 @@
 </div>
 
 
+# **Load balancer**
+<div>
+    <p align="center">
+       <img src="images/lb.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+# **Target group**
+<div>
+    <p align="center">
+       <img src="images/tg1.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+<div>
+    <p align="center">
+       <img src="images/tg1.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+
 # **Interfaz de la pagina web**
 
 La interfaz gráfica de la aplicación fue desarrollada en ReactJS, la cual es una librería escrita en JavaScript de código abierto enfocada a la visualización para facilitar la creación de componentes interactivos y reutilizables para interfaces de usuario.  
@@ -90,23 +110,8 @@ En la vista Administrators se muestran una corta biografía de personas importan
 </div>
 
 
+# **Servidor**
+El servidor de la aplicación fue desarrollada en Node JS, Node es un entorno en tiempo de ejecución multi plataforma, para la capa de servidor basado en el lenguaje de programación JavaScript.
 
-
-# **Load balancer**
-<div>
-    <p align="center">
-       <img src="images/lb.png" width="1500" alt="inicio"> 
-  <p>
-</div>
-
-# **Target group**
-<div>
-    <p align="center">
-       <img src="images/tg1.png" width="1500" alt="inicio"> 
-  <p>
-</div>
-<div>
-    <p align="center">
-       <img src="images/tg1.png" width="1500" alt="inicio"> 
-  <p>
-</div>
+Base de datos 
+La base de datos que se utilizo fue MySQL, este es un sistema de gestión de base de datos relacional esta considerado como la base de datos de código abierto mas popular del mundo.
