@@ -46,8 +46,11 @@
   <p>
 </div>
 
+
+### Se creo la aplicación WEB con la biblioteca de ReactJS. Se utilizaron dos intancias EC2 y un balanceador de carga para distribuir las cargas de trabajo, una instancia EC2 con un servidor hecho nodejs, los datos son almacenados en una base de datos de MYSQL, las imagenes subidas a la aplicación son almacendas en un bucket de S3
 # **Route 53**
 ### Direccionamiento del tráfico de Internet a los recursos del dominio Cuando un usuario abre un navegador web y escribe el nombre del dominio (ucron.tk) o el nombre de un subdominio (www.ucron.tk) en la barra de direcciones, Route 53 ayuda a conectar el navegador con nuestra aplicación web.
+
 <div>
     <p align="center">
        <img src="images/zone.png" width="1500" alt="inicio"> 
