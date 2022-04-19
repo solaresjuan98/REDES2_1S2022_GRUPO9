@@ -46,8 +46,17 @@
   <p>
 </div>
 
+# **Route 53**
+### Direccionamiento del tráfico de Internet a los recursos del dominio Cuando un usuario abre un navegador web y escribe el nombre del dominio (ucron.tk) o el nombre de un subdominio (www.ucron.tk) en la barra de direcciones, Route 53 ayuda a conectar el navegador con nuestra aplicación web.
+<div>
+    <p align="center">
+       <img src="images/zone.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
 
 # **Load balancer**
+### Distribuye el tráfico de red para mejorar la escalabilidad de nuestra aplicación
 <div>
     <p align="center">
        <img src="images/lb.png" width="1500" alt="inicio"> 
