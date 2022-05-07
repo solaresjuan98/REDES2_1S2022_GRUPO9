@@ -94,7 +94,7 @@ Una puerta de enlace NAT es un servicio de traducción de direcciones de red (NA
 
 
 
-# **Vista Home**
+### **Vista Home**
 
 En la vista Home se muestran un Carrusel de imagenes los cuales muestan lugares turisticos de Ucron. 
 <div>
@@ -103,7 +103,7 @@ En la vista Home se muestran un Carrusel de imagenes los cuales muestan lugares 
     <p>
 </div>
 
-# **Vista Developers**
+### **Vista Developers**
 
 En la vista developers de muestran los datos de los desarrolladores que realizaron la aplicación.
 <div>
@@ -113,7 +113,7 @@ En la vista developers de muestran los datos de los desarrolladores que realizar
 </div>
 
 
-# **Vista Administrators**
+### **Vista Administrators**
 
 En la vista Administrators se muestran una corta biografía de personas importantes de Ucron.  
 <div>
@@ -123,7 +123,7 @@ En la vista Administrators se muestran una corta biografía de personas importan
 </div>
 
 
-# **Servidor**
+### **Servidor**
 El servidor de la aplicación fue desarrollada en Node JS, Node es un entorno en tiempo de ejecución multi plataforma, para la capa de servidor basado en el lenguaje de programación JavaScript.
 
 Base de datos 
