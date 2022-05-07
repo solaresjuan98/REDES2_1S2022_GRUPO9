@@ -7,7 +7,7 @@ export const useDev = () => {
     const [developers, setDevelopers] = useState<Develop[]>()
     const getDevelopers = async () => {
         
-        await axios.get(`${process.env.REACT_APP_BACKEND}/api/develop`)
+        await axios.get(`/api/develop`)
             .then((res) => {
                 console.log(res.data)
                 setDevelopers(res.data.develop)

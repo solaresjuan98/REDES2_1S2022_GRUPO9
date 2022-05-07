@@ -8,7 +8,7 @@ export const useAdmin = () => {
 
     const getAdmins = async () => {
 
-        await axios.get(`${process.env.REACT_APP_BACKEND}/api/admin`)
+        await axios.get('/api/admin')
             .then((res) => {
                 //console.log(res.data)
                 setAdmins(res.data.admin)
