@@ -157,7 +157,7 @@ Una puerta de enlace NAT es un servicio de traducción de direcciones de red (NA
 ### **redes2-api-sg**
 <div>
   <p align="center">
-    <img src="resource/.png" width="1500" alt="inicio"> 
+    <img src="resource/sg-api.png" width="1500" alt="inicio"> 
   <p>
 </div>
 
