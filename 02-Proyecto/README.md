@@ -8,7 +8,7 @@
 
 <div>
     <p align="center">
-       <img src="resource/usac.png" width="400" alt="inicio"> 
+       <img src="./resource/usac.png" width="400" alt="inicio"> 
   <p>
 </div>
 
@@ -66,6 +66,12 @@
 
 Es un servicio que permite lanzar recursos de AWS en una red virtual aislada de forma lógica que usted defina. Puede controlar todos los aspectos del entorno de red virtual, como la selección de su propio rango de direcciones IP, la creación de subredes y la configuración de tablas de enrutamiento y gateways de red. Puede utilizar tanto IPv4 como IPv6 para la mayoría de los recursos de la VPC, lo que ayuda a garantizar el acceso seguro y fácil a los recursos y las aplicaciones.
 
+<div>
+  <p align="center">
+    <img src="resource/vpc.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
 Dirección VPC A
 
 **192.168.1.0**
@@ -80,19 +86,88 @@ Dirección VPC A
 | 192.168.3.20 |    SERVER 2   | 192.168.3.0 | 255.255.255.0 |  PRIVATE |
 |              | LOAD BALANCER | 192.168.1.0 | 255.255.255.0 |  PUBLIC  |
 
-
+<div>
+  <p align="center">
+    <img src="resource/subnets.png" width="1500" alt="inicio"> 
+  <p>
+</div>
 ### **Load Balancer**
 
 Distribuye automáticamente el tráfico entrante entre varios destinos, por ejemplo, instancias EC2, contenedores y direcciones IP en una o varias zonas de disponibilidad. Monitorea el estado de los destinos registrados y enruta el tráfico solamente a destinos en buen estado. Elastic Load Balancing escala el balanceador de carga a medida que el tráfico entrante va cambiando con el tiempo. Puede escalarse automáticamente para adaptarse a la mayoría de las cargas de trabajo.
 
 ### **Nat Gateways**
-
+<div>
+  <p align="center">
+    <img src="resource/nat.png" width="1500" alt="inicio"> 
+  <p>
+</div>
 Una puerta de enlace NAT es un servicio de traducción de direcciones de red (NAT). Puede utilizar una puerta de enlace NAT para que las instancias de una subred privada puedan conectarse a servicios fuera de la VPC, pero los servicios externos no pueden iniciar una conexión con esas instancias.
 
+### **Internet Gateway**
+<div>
+  <p align="center">
+    <img src="resource/gw.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+### **Route table**
+<div>
+  <p align="center">
+    <img src="resource/rt.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+
+### **EC2**
+<div>
+  <p align="center">
+    <img src="resource/ec2.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+### **Target group**
+<div>
+  <p align="center">
+    <img src="resource/tg.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+### **Load Balancer**
+<div>
+  <p align="center">
+    <img src="resource/lb.png" width="1500" alt="inicio"> 
+  <p>
+</div>
 
 <!-- ### **Seguiridad** -->
+## **Security Groups**
+<div>
+  <p align="center">
+    <img src="resource/sg.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+### **redes2-server-sg**
+<div>
+  <p align="center">
+    <img src="resource/sg_server.png" width="1500" alt="inicio"> 
+  <p>
+</div>
+
+### **redes2-api-sg**
+<div>
+  <p align="center">
+    <img src="resource/.png" width="1500" alt="inicio"> 
+  <p>
+</div>
 
 
+### **redes2-database-sg**
+<div>
+  <p align="center">
+    <img src="resource/sg-database.png" width="1500" alt="inicio"> 
+  <p>
+</div>
 
 ### **Vista Home**
 
