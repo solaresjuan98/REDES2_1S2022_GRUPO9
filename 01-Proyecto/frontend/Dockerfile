@@ -1,5 +1,12 @@
-FROM nginx:1.19.8-alpine
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./build /usr/share/nginx/html
-EXPOSE 80 443
-CMD [ "nginx", "-g", "daemon off;" ]
+### STAGE 1: Build ###
+FROM node:16-alpine AS node
+WORKDIR /app
+COPY . .
+RUN yarn install
+RUN yarn build
+
+### STAGE 2: Run ###
+FROM nginx:1.21.6-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=node /app/build/ /usr/share/nginx/html
+EXPOSE 80
